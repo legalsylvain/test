@@ -22,14 +22,7 @@
 
 import os
 
-DATABASE_NAME = 'test'
-
-#REPOSITORIES = [
-#    {
-#        'name': 'auth_admin_passkey',
-#        'modules': None,
-#    }
-#]
+DATABASE_NAME = 'test__all'
 
 REPOSITORIES = [
     {

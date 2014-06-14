@@ -52,7 +52,9 @@ install:
 
 # Create database for test
 before_script:
+    - echo "Tested Repositories"
     - python -c 'import config; print(config.ADDONS_LIST)'
+    - echo "Tested Modules"
     - python -c 'import config; print(config.MODULES_LIST)'
     - createdb $(python -c 'import config; print(config.DATABASE_NAME)')
 
@@ -65,8 +67,9 @@ script:
 
 # Installation Test
     - python ./check_install.py
+    - python ./check_test_all.py
 ###    - python ~/ocb-server/openerp-server --stop-after-init --database=db_test --addons-path=$(pwd),~/ocb-addons,~/ocb-web/addons --init=$(python -c 'import os; print(",".join(x for x in os.listdir(".") if os.path.isdir(x) and not x.startswith(".")))')
 ###    - coverage run ~/ocb-server/openerp-server --stop-after-init --database=db_test --log-level=test --test-enable --addons-path=$(pwd),~/ocb-addons,~/ocb-web/addons --init=$(python -c 'import os; print(",".join(x for x in os.listdir(".") if os.path.isdir(x) and not x.startswith(".")))')
 
-###after_success:
-###  coveralls
+after_success:
+    coveralls
