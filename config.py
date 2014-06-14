@@ -22,18 +22,18 @@
 
 REPOSITORIES = [
     {
-        'name': 'server-env-tools', 
+        'name': 'server-env-tools',
         'modules': [
             'auth_admin_passkey', 'disable_openerp_online']},
     {
-        'name': 'web-addons', 
+        'name': 'web-addons',
         'modules': [
             'web_ckeditor4', 'web_confirm_window_close', 'web_export_view',
-        'web_popup_large', 'web_widget_float_formula']},
+            'web_popup_large', 'web_widget_float_formula']},
     {
-        'name': 'openerp-addons-cis', 
+        'name': 'openerp-addons-cis',
         'modules': None},
     {
-        'name': 'openerp-addons-grap', 
+        'name': 'openerp-addons-grap',
         'modules': None},
 ]
