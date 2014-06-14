@@ -60,7 +60,7 @@ install:
 #   ignore F401 for __init__.py files;
 #   ignore F841 for other files;
 script:
-    - python ~/check_flake8.py
+    - python ./check_flake8.py
 # Flake8 Community modules used in production
 # TODO: make this module flake8 compliant
 #    - flake8 --filename=__init__.py --ignore=F401 ~/server-env-tools/auth_admin_passkey ~/server-env-tools/disable_openerp_online
