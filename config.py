@@ -22,6 +22,8 @@
 
 import os
 
+COMPLETE_TEST = True
+
 DATABASE_NAME = 'test__all'
 
 REPOSITORIES = [

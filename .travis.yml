@@ -35,7 +35,7 @@ install:
     - pip install -q http://download.gna.org/pychart/PyChart-1.39.tar.gz
 
 # Install openerp-command branch to run tests
-###    - bzr branch --stacked lp:~openerp/openerp-command/7.0 ~/openerp-command
+    - bzr branch --stacked lp:~openerp/openerp-command/7.0 ~/openerp-command
 
 # Install OCB branches used in production
     - bzr branch --stacked lp:~ocb/ocb-server/7.0 ~/ocb-server
@@ -60,16 +60,13 @@ before_script:
 
 
 script:
-# Flake8 Script:
-#   ignore F401 for __init__.py files;
-#   ignore F841 for other files;
+# Flake8: ignore F401 for __init__.py files; ignore F841 for other files;
 ###    - python ./check_flake8.py
 
 # Installation Test
     - python ./check_install.py
     - python ./check_test_all.py
-###    - python ~/ocb-server/openerp-server --stop-after-init --database=db_test --addons-path=$(pwd),~/ocb-addons,~/ocb-web/addons --init=$(python -c 'import os; print(",".join(x for x in os.listdir(".") if os.path.isdir(x) and not x.startswith(".")))')
-###    - coverage run ~/ocb-server/openerp-server --stop-after-init --database=db_test --log-level=test --test-enable --addons-path=$(pwd),~/ocb-addons,~/ocb-web/addons --init=$(python -c 'import os; print(",".join(x for x in os.listdir(".") if os.path.isdir(x) and not x.startswith(".")))')
+    - python ./check_test_distinct.py
 
 after_success:
     coveralls
