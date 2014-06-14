@@ -26,21 +26,6 @@ language: python
 python:
     - "2.7"
 
-env:
-#    - FLAKE8_COMMUNITY=""
-#    - FLAKE8_COMMUNITY=${FLAKE8_COMMUNITY}" ~/server-env-tools/auth_admin_passkey"
-#    - FLAKE8_COMMUNITY=${FLAKE8_COMMUNITY}" ~/server-env-tools/disable_openerp_online"
-#    - FLAKE8_COMMUNITY=${FLAKE8_COMMUNITY}" ~/web-addons/web_ckeditor4"
-#    - FLAKE8_COMMUNITY=${FLAKE8_COMMUNITY}" ~/web-addons/web_confirm_window_close"
-#    - FLAKE8_COMMUNITY=${FLAKE8_COMMUNITY}" ~/web-addons/web_export_view"
-#    - FLAKE8_COMMUNITY=${FLAKE8_COMMUNITY}" ~/web-addons/web_popup_large"
-#    - FLAKE8_COMMUNITY=${FLAKE8_COMMUNITY}" ~/web-addons/web_widget_float_formula"
-
-# Need coveralls for coverage reports
-# Need flake8 for pep8 testing
-# Manually get PyChart
-# Install tested version of odoo (official or ocb)
-# Get modules from other repos which have dependencies (in this case travel requires modules from lp:partner-contact-management and lp:openerp-hr
 install: 
 # Install Test librairies
     - pip install -q coveralls flake8
@@ -48,9 +33,10 @@ install:
 ###    - bzr branch --stacked lp:~ocb/ocb-server/7.0 ~/ocb-server
 ###    - bzr branch --stacked lp:~ocb/ocb-addons/7.0 ~/ocb-addons
 ###    - bzr branch --stacked lp:~ocb/ocb-web/7.0 ~/ocb-web
+
 # Install Community branches used in production
-###    - bzr branch --stacked lp:server-env-tools/7.0 ~/server-env-tools
-###    - bzr branch --stacked lp:web-addons/7.0 ~/web-addons
+    - bzr branch --stacked lp:server-env-tools/7.0 ~/server-env-tools
+    - bzr branch --stacked lp:web-addons/7.0 ~/web-addons
 
 # Install Custom branches used in production
     - bzr branch --stacked lp:openerp-addons-cis/7.0 ~/openerp-addons-cis
@@ -59,10 +45,10 @@ install:
 # Create database for test
 before_script: 
     - createdb database_test
-    - FLAKE8_CUSTOM="~/openerp-addons-cis ~/openerp-addons-grap"
 
-# Test with flake, ignore F401 for __init__.py files
-# Test with flake, ignore F841 for other files
+# Flake8 Note:
+#   ignore F401 for __init__.py files;
+#   ignore F841 for other files;
 ## Run tests with coverage
 ## Due to oddness of the odoo setup.py process, assure that import openerp gets it from env/openerp and not env/lib/python2.7/site-packages/openerp
 ## only test modules in repo (list populated by directories in repo)
@@ -70,16 +56,15 @@ before_script:
 ## include current director and dependent repos in addons-path
 script:
 # Flake8 Community modules used in production
-#    - flake8  ~/server-env-tools/auth_admin_passkey ~/server-env-tools/disable_openerp_online --filename=__init__.py --ignore=F401
-#    - flake8 ${FLAKE8_COMMUNITY} --exclude=__init__.py --ignore=F841
+    - flake8 --filename=__init__.py --ignore=F401 ~/server-env-tools/auth_admin_passkey ~/server-env-tools/disable_openerp_online
+    - flake8  --exclude=__init__.py --ignore=F841 ~/server-env-tools/auth_admin_passkey ~/server-env-tools/disable_openerp_online
 
-""
-#    - FLAKE8_COMMUNITY=${FLAKE8_COMMUNITY}" "
+    - flake8 --filename=__init__.py --ignore=F401 ~/server-env-tools/auth_admin_passkey ~/server-env-tools/disable_openerp_online ~/web-addons/web_ckeditor4 ~/web-addons/web_confirm_window_close ~/web-addons/web_export_view ~/web-addons/web_popup_large ~/web-addons/web_widget_float_formula
+    - flake8  --exclude=__init__.py --ignore=F841 ~/server-env-tools/auth_admin_passkey ~/server-env-tools/disable_openerp_online ~/web-addons/web_ckeditor4 ~/web-addons/web_confirm_window_close ~/web-addons/web_export_view ~/web-addons/web_popup_large ~/web-addons/web_widget_float_formula
 
 # Flake8 all the custom modules
-    - flake8 $(echo ${FLAKE8_CUSTOM})
-#    - flake8  ~/openerp-addons-cis ~/openerp-addons-grap --filename=__init__.py --ignore=F401
-#    - flake8  ~/openerp-addons-cis ~/openerp-addons-grap --exclude=__init__.py --ignore=F841
+    - flake8 --filename=__init__.py --ignore=F401 ~/openerp-addons-cis ~/openerp-addons-grap
+    - flake8  --exclude=__init__.py --ignore=F841 ~/openerp-addons-cis ~/openerp-addons-grap
 #    - odoo.py --stop-after-init --init=$(python -c 'import os; print(",".join(x for x in os.listdir(".") if os.path.isdir(x) and not x.startswith(".")))') --addons-path=$(pwd),$VIRTUAL_ENV/addons #,~/partner-contact-management,~/openerp-hr
 #    - coverage run $(which odoo.py) --test-enable --log-level=test --stop-after-init --init=$(python -c 'import os; print(",".join(x for x in os.listdir(".") if os.path.isdir(x) and not x.startswith(".")))') --addons-path=$(pwd),$VIRTUAL_ENV/addons #,~/partner-contact-management,~/openerp-hr
 
