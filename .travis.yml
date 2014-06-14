@@ -45,8 +45,8 @@ install:
 # Install Community branches used in production
     # TODO
 # Install Custom branches used in production
-    - bzr branch --stacked lp:~ocb/openerp-addons-cis/7.0 ~/openerp-addons-cis
-    - bzr branch --stacked lp:~ocb/openerp-addons-grap/7.0 ~/openerp-addons-grap
+    - bzr branch --stacked lp:~openerp-addons-cis/7.0 ~/openerp-addons-cis
+    - bzr branch --stacked lp:~openerp-addons-grap/7.0 ~/openerp-addons-grap
 #    - pip install http://download.gna.org/pychart/PyChart-1.39.tar.gz
 #    - pip install ${ODOO}
 #    - bzr branch --stacked lp:partner-contact-management ~/partner-contact-management
