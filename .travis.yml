@@ -51,7 +51,9 @@ install:
     - bzr branch --stacked lp:openerp-addons-grap/7.0 ./openerp-addons-grap
 
 # Create database for test
-before_script: 
+before_script:
+    - python -c 'import config; print(config.ADDONS_LIST)'
+    - python -c 'import config; print(config.MODULES_LIST)'
     - createdb $(python -c 'import config; print(config.DATABASE_NAME)')
 
 

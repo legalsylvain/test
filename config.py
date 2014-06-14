@@ -49,12 +49,8 @@ REPOSITORIES = [
         'modules': None},
 ]
 
-
 ADDONS_LIST = './' + ',./'.join(
     [x['name'] for x in REPOSITORIES] + ['ocb-addons', 'ocb-web/addons'])
-
-print "ADDONS_LIST"
-print ADDONS_LIST
 
 MODULES = []
 for rep in REPOSITORIES:
@@ -66,6 +62,3 @@ for rep in REPOSITORIES:
                     and not item.startswith(".")):
                 MODULES.append(item)
 MODULES_LIST = ','.join(MODULES)
-
-print "MODULES"
-print MODULES_LIST
