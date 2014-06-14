@@ -29,6 +29,10 @@ python:
 install: 
 # Install Test librairies
     - pip install -q coveralls flake8
+
+# Install Librairies For Odoo
+    - pip install -q dateutil feedparser gdata ldap libxslt1 lxml mako openid psycopg2 pybabel pychart pydot pyparsing reportlab simplejson tz vatnumber vobject webdav werkzeug xlwt yaml zsi unittest2 docutils jinja2 mock psutil pygments roman fpconst soappy cairo
+
 # Install OCB branches used in production
     - bzr branch --stacked lp:~ocb/ocb-server/7.0 ~/ocb-server
     - bzr branch --stacked lp:~ocb/ocb-addons/7.0 ~/ocb-addons
