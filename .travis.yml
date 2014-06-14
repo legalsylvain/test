@@ -27,7 +27,7 @@ python:
     - "2.7"
 
 env:
-    - FLAKE8_CUSTOM="~/openerp-addons-cis ~/openerp-addons-grap"
+    - FLAKE8_CUSTOM=~/openerp-addons-cis ~/openerp-addons-grap
 #    - FLAKE8_COMMUNITY=""
 #    - FLAKE8_COMMUNITY=${FLAKE8_COMMUNITY}" ~/server-env-tools/auth_admin_passkey"
 #    - FLAKE8_COMMUNITY=${FLAKE8_COMMUNITY}" ~/server-env-tools/disable_openerp_online"
@@ -77,6 +77,7 @@ script:
 #    - flake8  ./openerp-addons-cis ./openerp-addons-grap --filename=__init__.py --ignore=F401
     - echo ${FLAKE8_CUSTOM}
     - flake8  ${FLAKE8_CUSTOM} --exclude=__init__.py --ignore=F841
+    - flake8  ~/openerp-addons-cis ~/openerp-addons-grap --exclude=__init__.py --ignore=F841
 #    - odoo.py --stop-after-init --init=$(python -c 'import os; print(",".join(x for x in os.listdir(".") if os.path.isdir(x) and not x.startswith(".")))') --addons-path=$(pwd),$VIRTUAL_ENV/addons #,~/partner-contact-management,~/openerp-hr
 #    - coverage run $(which odoo.py) --test-enable --log-level=test --stop-after-init --init=$(python -c 'import os; print(",".join(x for x in os.listdir(".") if os.path.isdir(x) and not x.startswith(".")))') --addons-path=$(pwd),$VIRTUAL_ENV/addons #,~/partner-contact-management,~/openerp-hr
 
