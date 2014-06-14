@@ -36,6 +36,9 @@ install:
 
 # On my server but not available on Travis Plateform: libxslt tz yaml cairo docutils-common docutils-doc zsi
 
+# Install openerp-command branch to run tests
+    - bzr branch --stacked lp:openerp-command/7.0 ~/openerp-command
+
 # Install OCB branches used in production
     - bzr branch --stacked lp:~ocb/ocb-server/7.0 ~/ocb-server
     - bzr branch --stacked lp:~ocb/ocb-addons/7.0 ~/ocb-addons
