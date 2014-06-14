@@ -59,8 +59,8 @@ install:
 # Create database for test
 before_script: 
     - createdb database_test
-    - FLAKE8_CUSTOM=~/openerp-addons-cis
-    - FLAKE8_CUSTOM=${FLAKE8_CUSTOM} ~/openerp-addons-grap
+    - FLAKE8_CUSTOM="~/openerp-addons-cis"
+    - FLAKE8_CUSTOM=${FLAKE8_CUSTOM}" ~/openerp-addons-grap"
 
 # Test with flake, ignore F401 for __init__.py files
 # Test with flake, ignore F841 for other files
