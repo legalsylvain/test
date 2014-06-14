@@ -27,20 +27,14 @@ python:
     - "2.7"
 
 install: 
-# Install Test librairies
+# Install librairies for Tests
     - pip install -q coveralls flake8
-    
-# Install Librairies For Odoo
-#    - pip install -q dateutil feedparser gdata ldap libxslt1 lxml mako openid psycopg2 pybabel pychart pydot pyparsing reportlab simplejson tz vatnumber vobject webdav werkzeug xlwt yaml zsi unittest2 docutils jinja2 mock psutil pygments roman fpconst soappy cairo
 
-#    - sudo apt-get install python-dateutil python-feedparser python-gdata python-ldap python-libxslt1 python-lxml python-mako python-openid python-psycopg2 python-pybabel python-pychart python-pydot python-pyparsing python-reportlab python-simplejson python-tz python-vatnumber python-vobject python-webdav python-werkzeug python-xlwt python-yaml python-zsi python-unittest2 docutils-common docutils-doc python-docutils python-jinja2 python-mock python-psutil python-pygments python-roman python-fpconst python-soappy python-cairo
-
-    - pip install -q http://download.gna.org/pychart/PyChart-1.39.tar.gz
+# Install Librairies for Odoo
     - pip install -q python-dateutil feedparser gdata python-ldap lxml mako python-openid psycopg2 babel pydot pyparsing reportlab simplejson vatnumber vobject python-webdav werkzeug xlwt unittest2 docutils jinja2 mock psutil pygments roman fpconst soappy
+    - pip install -q http://download.gna.org/pychart/PyChart-1.39.tar.gz
 
-
-# libxslt tz yaml cairo docutils-common docutils-doc 
-# zsi
+# On my server but not available on Travis Plateform: libxslt tz yaml cairo docutils-common docutils-doc zsi
 
 # Install OCB branches used in production
     - bzr branch --stacked lp:~ocb/ocb-server/7.0 ~/ocb-server
@@ -77,7 +71,7 @@ script:
 #    - flake8  --exclude=__init__.py --ignore=F841 ~/openerp-addons-cis ~/openerp-addons-grap
 
 # Installation Test
-    - python ~/ocb-server/openerp-server --stop-after-init --init=$(python -c 'import os; print(",".join(x for x in os.listdir(".") if os.path.isdir(x) and not x.startswith(".")))') --addons-path=$(pwd),./ocb-addons,./ocb-web/addons
+    - python ~/ocb-server/openerp-server --stop-after-init --init=$(python -c 'import os; print(",".join(x for x in os.listdir(".") if os.path.isdir(x) and not x.startswith(".")))') --addons-path=$(pwd),~/ocb-addons,~/ocb-web/addons
 #    - coverage run $(which odoo.py) --test-enable --log-level=test --stop-after-init --init=$(python -c 'import os; print(",".join(x for x in os.listdir(".") if os.path.isdir(x) and not x.startswith(".")))') --addons-path=$(pwd),$VIRTUAL_ENV/addons #,~/partner-contact-management,~/openerp-hr
 
 #after_success:
