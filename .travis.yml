@@ -45,12 +45,12 @@ install:
 ###    - bzr branch --stacked lp:~ocb/ocb-web/7.0 ~/ocb-web
 
 # Install Community branches used in production
-    - bzr branch --stacked lp:server-env-tools/7.0 ~/server-env-tools
-    - bzr branch --stacked lp:web-addons/7.0 ~/web-addons
+    - bzr branch --stacked lp:server-env-tools/7.0 ./server-env-tools
+    - bzr branch --stacked lp:web-addons/7.0 ./web-addons
 
 # Install Custom branches used in production
-    - bzr branch --stacked lp:openerp-addons-cis/7.0 ~/openerp-addons-cis
-    - bzr branch --stacked lp:openerp-addons-grap/7.0 ~/openerp-addons-grap
+    - bzr branch --stacked lp:openerp-addons-cis/7.0 ./openerp-addons-cis
+    - bzr branch --stacked lp:openerp-addons-grap/7.0 ./openerp-addons-grap
 
 # Create database for test
 ###before_script: 
