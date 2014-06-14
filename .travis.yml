@@ -37,7 +37,7 @@ env:
 install: 
     - pip install coveralls 
     - pip install flake8
-#    - pip install http://download.gna.org/pychart/PyChart-1.39.tar.gz
+    - pip install http://download.gna.org/pychart/PyChart-1.39.tar.gz
     - pip install ${ODOO}
 #    - bzr branch --stacked lp:partner-contact-management ~/partner-contact-management
 #    - bzr branch --stacked lp:openerp-hr ~/openerp-hr
