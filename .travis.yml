@@ -1,0 +1,65 @@
+# -*- encoding: utf-8 -*-
+##############################################################################
+#
+#    Config File for Travis
+#    Copyright (C) 2013-2014 GRAP (http://www.grap.coop)
+#    @author Sylvain LE GAL (https://twitter.com/legalsylvain)
+#    Based on the work of Sandy Carter (https://github.com/bwrsandman)
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU Affero General Public License as
+#    published by the Free Software Foundation, either version 3 of the
+#    License, or (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU Affero General Public License for more details.
+#
+#    You should have received a copy of the GNU Affero General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+##############################################################################
+
+language: python
+
+python:
+    - "2.7"
+
+env:
+    - ODOO="https://github.com/savoirfairelinux/odoo/archive/setuptools-addons.tar.gz"
+
+# Need coveralls for coverage reports
+# Need flake8 for pep8 testing
+# Manually get PyChart
+# Install tested version of odoo (official or ocb)
+# Get modules from other repos which have dependencies (in this case travel requires modules from lp:partner-contact-management and lp:openerp-hr
+install: 
+#    - pip install coveralls 
+    - pip install flake8
+#    - pip install http://download.gna.org/pychart/PyChart-1.39.tar.gz
+#    - pip install ${ODOO}
+#    - bzr branch --stacked lp:partner-contact-management ~/partner-contact-management
+#    - bzr branch --stacked lp:openerp-hr ~/openerp-hr
+
+# Create database
+# Pre-install modules and dependencies
+#before_script: 
+#    - createdb test
+
+# Test with flake, ignore F401 for __init__.py files, use a max length of 120
+# Run tests with coverage
+# Due to oddness of the odoo setup.py process, assure that import openerp gets it from env/openerp and not env/lib/python2.7/site-packages/openerp
+# only test modules in repo (list populated by directories in repo)
+# preload modules before testing to only run tests of repo's modules
+# include current director and dependent repos in addons-path
+script:
+    - flake8 . --max-line-length=120 --filename=__init__.py --ignore=F401
+#    - flake8 . --max-line-length=120 --exclude=__init__.py
+#    - git diff $TRAVIS_BRANCH | flake8 . --diff --max-line-length=120 --filename=__init__.py --ignore=F401
+#    - git diff $TRAVIS_BRANCH | flake8 . --diff --max-line-length=120 --exclude=__init__.py
+#    - odoo.py --stop-after-init --init=$(python -c 'import os; print(",".join(x for x in os.listdir(".") if os.path.isdir(x) and not x.startswith(".")))') --addons-path=$(pwd),$VIRTUAL_ENV/addons,~/partner-contact-management,~/openerp-hr
+#    - coverage run $(which odoo.py) --test-enable --log-level=test --stop-after-init --init=$(python -c 'import os; print(",".join(x for x in os.listdir(".") if os.path.isdir(x) and not x.startswith(".")))') --addons-path=$(pwd),$VIRTUAL_ENV/addons,~/partner-contact-management,~/openerp-hr
+
+#after_success:
+#  coveralls
