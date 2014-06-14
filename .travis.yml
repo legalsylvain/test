@@ -35,12 +35,12 @@ install:
     - pip install -q http://download.gna.org/pychart/PyChart-1.39.tar.gz
 
 # Install openerp-command branch to run tests
-    - bzr branch --stacked lp:~openerp/openerp-command/7.0 ~/openerp-command
+    - bzr branch --stacked lp:~openerp/openerp-command/7.0 ./openerp-command
 
 # Install OCB branches used in production
-    - bzr branch --stacked lp:~ocb/ocb-server/7.0 ~/ocb-server
-    - bzr branch --stacked lp:~ocb/ocb-addons/7.0 ~/ocb-addons
-    - bzr branch --stacked lp:~ocb/ocb-web/7.0 ~/ocb-web
+    - bzr branch --stacked lp:~ocb/ocb-server/7.0 ./ocb-server
+    - bzr branch --stacked lp:~ocb/ocb-addons/7.0 ./ocb-addons
+    - bzr branch --stacked lp:~ocb/ocb-web/7.0 ./ocb-web
 
 # Install Community branches used in production
     - bzr branch --stacked lp:server-env-tools/7.0 ./server-env-tools
