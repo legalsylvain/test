@@ -72,7 +72,7 @@ script:
 
 # Installation Test
     - python ~/ocb-server/openerp-server --stop-after-init --database=db_test --addons-path=$(pwd),~/ocb-addons,~/ocb-web/addons --init=$(python -c 'import os; print(",".join(x for x in os.listdir(".") if os.path.isdir(x) and not x.startswith(".")))')
-    - coverage run python ~/ocb-server/openerp-server --log-level=test --stop-after-init --database=db_test --test-enable --addons-path=$(pwd),~/ocb-addons,~/ocb-web/addons --init=$(python -c 'import os; print(",".join(x for x in os.listdir(".") if os.path.isdir(x) and not x.startswith(".")))')
+    - coverage run ~/ocb-server/openerp-server --stop-after-init --database=db_test --log-level=test --test-enable --addons-path=$(pwd),~/ocb-addons,~/ocb-web/addons --init=$(python -c 'import os; print(",".join(x for x in os.listdir(".") if os.path.isdir(x) and not x.startswith(".")))')
 
 after_success:
   coveralls
