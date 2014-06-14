@@ -31,7 +31,7 @@ install:
     - pip install -q coveralls flake8
 
 # Install Librairies for Odoo
-    - pip install -q python-dateutil feedparser gdata python-ldap lxml mako python-openid psycopg2 babel pydot pyparsing reportlab simplejson vatnumber vobject python-webdav werkzeug xlwt unittest2 docutils jinja2 mock psutil pygments roman fpconst soappy
+    - pip install -q python-dateutil feedparser gdata python-ldap lxml mako python-openid psycopg2 babel pydot pyparsing reportlab simplejson vatnumber vobject python-webdav werkzeug xlwt unittest2 docutils jinja2 mock psutil pygments roman fpconst soappy cairosvg
     - pip install -q http://download.gna.org/pychart/PyChart-1.39.tar.gz
 
 # Install openerp-command branch to run tests
