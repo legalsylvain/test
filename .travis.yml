@@ -33,7 +33,11 @@ install:
 # Install Librairies For Odoo
 #    - pip install -q dateutil feedparser gdata ldap libxslt1 lxml mako openid psycopg2 pybabel pychart pydot pyparsing reportlab simplejson tz vatnumber vobject webdav werkzeug xlwt yaml zsi unittest2 docutils jinja2 mock psutil pygments roman fpconst soappy cairo
 
-    - sudo apt-get install python-dateutil python-feedparser python-gdata python-ldap python-libxslt1 python-lxml python-mako python-openid python-psycopg2 python-pybabel python-pychart python-pydot python-pyparsing python-reportlab python-simplejson python-tz python-vatnumber python-vobject python-webdav python-werkzeug python-xlwt python-yaml python-zsi python-unittest2 docutils-common docutils-doc python-docutils python-jinja2 python-mock python-psutil python-pygments python-roman python-fpconst python-soappy python-cairo
+#    - sudo apt-get install python-dateutil python-feedparser python-gdata python-ldap python-libxslt1 python-lxml python-mako python-openid python-psycopg2 python-pybabel python-pychart python-pydot python-pyparsing python-reportlab python-simplejson python-tz python-vatnumber python-vobject python-webdav python-werkzeug python-xlwt python-yaml python-zsi python-unittest2 docutils-common docutils-doc python-docutils python-jinja2 python-mock python-psutil python-pygments python-roman python-fpconst python-soappy python-cairo
+
+    - pip install -q python-dateutil feedparser gdata python-ldap lxml mako python-openid psycopg2 pychart pydot pyparsing reportlab simplejson vatnumber vobject python-webdav werkzeug xlwt zsi unittest2 docutils jinja2 mock psutil pygments roman fpconst soappy
+
+# libxslt pybabel tz yaml cairo docutils-common docutils-doc
 
 # Install OCB branches used in production
     - bzr branch --stacked lp:~ocb/ocb-server/7.0 ~/ocb-server
