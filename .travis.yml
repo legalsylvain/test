@@ -27,17 +27,15 @@ python:
     - "2.7"
 
 env:
-    - FLAKE8_CUSTOM=""
-    - FLAKE8_CUSTOM=${FLAKE8_CUSTOM}" ~/openerp-addons-cis"
-    - FLAKE8_CUSTOM=${FLAKE8_CUSTOM}" ~/openerp-addons-grap"
-    - FLAKE8_COMMUNITY=""
-    - FLAKE8_COMMUNITY=${FLAKE8_COMMUNITY}" ~/server-env-tools/auth_admin_passkey"
-    - FLAKE8_COMMUNITY=${FLAKE8_COMMUNITY}" ~/server-env-tools/disable_openerp_online"
-    - FLAKE8_COMMUNITY=${FLAKE8_COMMUNITY}" ~/web-addons/web_ckeditor4"
-    - FLAKE8_COMMUNITY=${FLAKE8_COMMUNITY}" ~/web-addons/web_confirm_window_close"
-    - FLAKE8_COMMUNITY=${FLAKE8_COMMUNITY}" ~/web-addons/web_export_view"
-    - FLAKE8_COMMUNITY=${FLAKE8_COMMUNITY}" ~/web-addons/web_popup_large"
-    - FLAKE8_COMMUNITY=${FLAKE8_COMMUNITY}" ~/web-addons/web_widget_float_formula"
+    - FLAKE8_CUSTOM=" ~/openerp-addons-cis ~/openerp-addons-grap"
+#    - FLAKE8_COMMUNITY=""
+#    - FLAKE8_COMMUNITY=${FLAKE8_COMMUNITY}" ~/server-env-tools/auth_admin_passkey"
+#    - FLAKE8_COMMUNITY=${FLAKE8_COMMUNITY}" ~/server-env-tools/disable_openerp_online"
+#    - FLAKE8_COMMUNITY=${FLAKE8_COMMUNITY}" ~/web-addons/web_ckeditor4"
+#    - FLAKE8_COMMUNITY=${FLAKE8_COMMUNITY}" ~/web-addons/web_confirm_window_close"
+#    - FLAKE8_COMMUNITY=${FLAKE8_COMMUNITY}" ~/web-addons/web_export_view"
+#    - FLAKE8_COMMUNITY=${FLAKE8_COMMUNITY}" ~/web-addons/web_popup_large"
+#    - FLAKE8_COMMUNITY=${FLAKE8_COMMUNITY}" ~/web-addons/web_widget_float_formula"
 
 # Need coveralls for coverage reports
 # Need flake8 for pep8 testing
@@ -73,8 +71,8 @@ before_script:
 ## include current director and dependent repos in addons-path
 script:
 # Flake8 Community modules used in production
-    - flake8 ${FLAKE8_COMMUNITY} --filename=__init__.py --ignore=F401
-    - flake8 ${FLAKE8_COMMUNITY} --exclude=__init__.py --ignore=F841
+###    - flake8 ${FLAKE8_COMMUNITY} --filename=__init__.py --ignore=F401
+###    - flake8 ${FLAKE8_COMMUNITY} --exclude=__init__.py --ignore=F841
 
 # Flake8 all the custom modules
     - flake8 ${FLAKE8_CUSTOM} --filename=__init__.py --ignore=F401
