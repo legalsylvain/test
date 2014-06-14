@@ -20,6 +20,17 @@
 #
 ##############################################################################
 
+import os
+
+DATABASE_NAME = 'test'
+
+#REPOSITORIES = [
+#    {
+#        'name': 'auth_admin_passkey',
+#        'modules': None,
+#    }
+#]
+
 REPOSITORIES = [
     {
         'name': 'server-env-tools',
@@ -37,3 +48,24 @@ REPOSITORIES = [
         'name': 'openerp-addons-grap',
         'modules': None},
 ]
+
+
+ADDONS_LIST = './' + ',./'.join(
+    [x['name'] for x in REPOSITORIES] + ['ocb-addons', 'ocb-web/addons'])
+
+print "ADDONS_LIST"
+print ADDONS_LIST
+
+MODULES = []
+for rep in REPOSITORIES:
+    if rep['modules']:
+        MODULES += rep['modules']
+    else:
+        for item in os.listdir('./%s' % (rep['name'])):
+            if (os.path.isdir('./%s/%s' % (rep['name'], item)) 
+                    and not item.startswith(".")):
+                MODULES.append(item)
+MODULES_LIST = ','.join(MODULES)
+
+print "MODULES"
+print MODULES_LIST
