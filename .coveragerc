@@ -1,0 +1,15 @@
+# For more information, see http://nedbatchelder.com/code/coverage/config.html
+[report]
+branch = True
+include =
+    */server-env-tools/auth_admin_passkey/*
+    */server-env-tools/disable_openerp_online/*
+    */web-addons/web_ckeditor4/*
+    */web-addons/web_confirm_window_close/*
+    */web-addons/web_export_view/*
+    */web-addons/web_popup_large/*
+    */web-addons/web_widget_float_formula/*
+    */openerp-addons-cis/*
+    */openerp-addons-grap/*
+omit =
+    */__init__.py
