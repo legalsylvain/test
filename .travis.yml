@@ -64,7 +64,7 @@ script:
 #    - flake8  --exclude=__init__.py --ignore=F841 ~/openerp-addons-cis ~/openerp-addons-grap
 
 # Installation Test
-    - python ocb-server/openerp-server --stop-after-init --init=$(python -c 'import os; print(",".join(x for x in os.listdir(".") if os.path.isdir(x) and not x.startswith(".")))') --addons-path=$(pwd),./ocb-addons,./ocb-web/addons
+    - python ~/ocb-server/openerp-server --stop-after-init --init=$(python -c 'import os; print(",".join(x for x in os.listdir(".") if os.path.isdir(x) and not x.startswith(".")))') --addons-path=$(pwd),./ocb-addons,./ocb-web/addons
 #    - coverage run $(which odoo.py) --test-enable --log-level=test --stop-after-init --init=$(python -c 'import os; print(",".join(x for x in os.listdir(".") if os.path.isdir(x) and not x.startswith(".")))') --addons-path=$(pwd),$VIRTUAL_ENV/addons #,~/partner-contact-management,~/openerp-hr
 
 #after_success:
