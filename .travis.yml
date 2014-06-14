@@ -27,7 +27,17 @@ python:
     - "2.7"
 
 env:
-    - ODOO="https://github.com/savoirfairelinux/odoo/archive/setuptools-addons.tar.gz"
+    - FLAKE8_CUSTOM=""
+    - FLAKE8_CUSTOM=${FLAKE8_CUSTOM}" ~/openerp-addons-cis"
+    - FLAKE8_CUSTOM=${FLAKE8_CUSTOM}" ~/openerp-addons-grap"
+    - FLAKE8_COMMUNITY=""
+    - FLAKE8_COMMUNITY=${FLAKE8_COMMUNITY}" ~/server-env-tools/auth_admin_passkey"
+    - FLAKE8_COMMUNITY=${FLAKE8_COMMUNITY}" ~/server-env-tools/disable_openerp_online"
+    - FLAKE8_COMMUNITY=${FLAKE8_COMMUNITY}" ~/web-addons/web_ckeditor4"
+    - FLAKE8_COMMUNITY=${FLAKE8_COMMUNITY}" ~/web-addons/web_confirm_window_close"
+    - FLAKE8_COMMUNITY=${FLAKE8_COMMUNITY}" ~/web-addons/web_export_view"
+    - FLAKE8_COMMUNITY=${FLAKE8_COMMUNITY}" ~/web-addons/web_popup_large"
+    - FLAKE8_COMMUNITY=${FLAKE8_COMMUNITY}" ~/web-addons/web_widget_float_formula"
 
 # Need coveralls for coverage reports
 # Need flake8 for pep8 testing
@@ -43,19 +53,16 @@ install:
 #    - bzr branch --stacked lp:~ocb/ocb-addons/7.0 ~/ocb-addons
 #    - bzr branch --stacked lp:~ocb/ocb-web/7.0 ~/ocb-web
 # Install Community branches used in production
-    # TODO
+    - bzr branch --stacked lp:server-env-tools/7.0 ~/server-env-tools
+    - bzr branch --stacked lp:web-addons/7.0 ~/web-addons
+
 # Install Custom branches used in production
     - bzr branch --stacked lp:openerp-addons-cis/7.0 ~/openerp-addons-cis
     - bzr branch --stacked lp:openerp-addons-grap/7.0 ~/openerp-addons-grap
-#    - pip install http://download.gna.org/pychart/PyChart-1.39.tar.gz
-#    - pip install ${ODOO}
-#    - bzr branch --stacked lp:partner-contact-management ~/partner-contact-management
-#    - bzr branch --stacked lp:openerp-hr ~/openerp-hr
 
-# Create database
-# Pre-install modules and dependencies
+# Create database for test
 before_script: 
-    - createdb test
+    - createdb database_test
 
 # Test with flake, ignore F401 for __init__.py files
 # Test with flake, ignore F841 for other files
@@ -65,9 +72,13 @@ before_script:
 ## preload modules before testing to only run tests of repo's modules
 ## include current director and dependent repos in addons-path
 script:
-# Flake8 for all the custom modules
-    - flake8 ~/openerp-addons-cis ~/openerp-addons-grap --filename=__init__.py --ignore=F401
-    - flake8 ~/openerp-addons-cis ~/openerp-addons-grap --exclude=__init__.py --ignore=F841
+# Flake8 Community modules used in production
+    - flake8 ${FLAKE8_COMMUNITY} --filename=__init__.py --ignore=F401
+    - flake8 ${FLAKE8_COMMUNITY} --exclude=__init__.py --ignore=F841
+
+# Flake8 all the custom modules
+    - flake8 ${FLAKE8_CUSTOM} --filename=__init__.py --ignore=F401
+    - flake8 ${FLAKE8_CUSTOM} --exclude=__init__.py --ignore=F841
 #    - odoo.py --stop-after-init --init=$(python -c 'import os; print(",".join(x for x in os.listdir(".") if os.path.isdir(x) and not x.startswith(".")))') --addons-path=$(pwd),$VIRTUAL_ENV/addons #,~/partner-contact-management,~/openerp-hr
 #    - coverage run $(which odoo.py) --test-enable --log-level=test --stop-after-init --init=$(python -c 'import os; print(",".join(x for x in os.listdir(".") if os.path.isdir(x) and not x.startswith(".")))') --addons-path=$(pwd),$VIRTUAL_ENV/addons #,~/partner-contact-management,~/openerp-hr
 
