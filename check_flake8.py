@@ -18,7 +18,7 @@ def _check_folder(path, flake8_except):
 ok = True
 
 for addons in config.CUSTOM_ADDONS:
-    if addons.getitem('flake8', True):
+    if addons.get('flake8', True):
         if addons['module']:
                 ok = _check_folder(
                     './%s/%s' % (addons['name'], addons['module']),
