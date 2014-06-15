@@ -33,11 +33,11 @@ install:
 # Install Odoo and required librairies
     - python ./install.py
 
-# Create database for test
 before_script:
+# Create database for test
     - createdb $(python -c 'import config; print(config.DATABASE_NAME)')
+# Add ocb-server to python path to make openerp-command working
     - export PYTHONPATH=$PYTHONPATH:./ocb-server/
-
 
 script:
 # Flake8 test (ignoring F401 for __init__.py files)
@@ -45,10 +45,13 @@ script:
 
 # Installation Test
     - python ./check_install.py
+
 # Unittests + Coverage compute
     - python ./check_test_all.py
-# Distinct test
+
+# Distinct test (only if 
     - python ./check_test_distinct.py
 
- after_success:
-    coveralls
+after_success:
+# Send Information to Coveralls
+    - coveralls

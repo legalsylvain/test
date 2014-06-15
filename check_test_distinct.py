@@ -26,6 +26,7 @@ from subprocess import check_call
 
 if config.COMPLETE_TEST:
     for mod in config.MODULES:
+        print "Installing '%s' on a specific database" % (module['name'])
         module = mod['name']
         # create new db
         db_name = 'test__%s' % (module)
@@ -41,6 +42,7 @@ if config.COMPLETE_TEST:
 
         # Test (without coverage)
         if os.path.isdir('./%s/%s/tests' % (mod['repository'], module)):
+        p   print "Testing '%s' on a specific database" % (module['name'])
             check_call([
                 'python', './openerp-command/oe', 'run-tests',
                 '--database=%s' % (db_name),

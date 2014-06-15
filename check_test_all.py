@@ -26,6 +26,7 @@ from subprocess import check_call
 
 for module in config.MODULES:
     if os.path.isdir('./%s/%s/tests' % (module['repository'], module['name'])):
+        print "Testing '%s' on global database" % (module['name'])
         check_call([
             'coverage', 'run', './openerp-command/oe', 'run-tests',
             '--database=%s' % (config.DATABASE_NAME),
