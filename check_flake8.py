@@ -22,11 +22,11 @@ for addons in config.CUSTOM_ADDONS:
         if addons['module']:
                 ok = _check_folder(
                     './%s/%s' % (addons['name'], addons['module']),
-                    addons.getitem('flake8-except', None)) and ok
+                    addons.get('flake8-except', None)) and ok
         else:
             ok = _check_folder(
                 './%s' % (addons['name']),
-                addons.getitem('flake8-except', None)) and ok
+                addons.get('flake8-except', None)) and ok
 
 if not ok:
     raise Exception('Flake8 Error')
