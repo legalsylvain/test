@@ -57,6 +57,7 @@ before_script:
     - echo "Tested Modules"
     - python -c 'import config; print(config.MODULES_LIST)'
     - createdb $(python -c 'import config; print(config.DATABASE_NAME)')
+    - export PYTHONPATH=$PYTHONPATH:./ocb-server/
 
 
 script:
