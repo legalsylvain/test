@@ -45,11 +45,10 @@ script:
 
 # Installation Test
     - python ./check_install.py
-# Installation Test
-###    - python ./check_test_base.py
+# Unittests + Coverage compute
+    - python ./check_test_all.py
+# Distinct test
+    - python ./check_test_distinct.py
 
-###    - python ./check_test_all.py
-###    - python ./check_test_distinct.py
-
-### after_success:
-###    coveralls
+ after_success:
+    coveralls

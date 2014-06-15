@@ -20,25 +20,29 @@
 #
 ##############################################################################
 
-#import config
-#from subprocess import check_call
+impor os
+import config
+from subprocess import check_call
 
-#if config.COMPLETE_TEST:
-#    for module in config.MODULES:
-#        # create new db
-#        db_name = 'test__%s' % (module)
-#        check_call(['createdb', db_name])
+if config.COMPLETE_TEST:
+    for mod in config.MODULES:
+        module = mod['name']
+        # create new db
+        db_name = 'test__%s' % (module)
+        check_call(['createdb', db_name])
 
-#        # Install Module
-#        check_call([
-#            'python', './ocb-server/openerp-server',
-#            '--stop-after-init', '--database=%s' % (db_name),
-#            '--addons-path=%s' % (config.ADDONS_LIST),
-#            '--init=%s' % (module)])
+        # Install Module
+        check_call([
+            'python', config.SERVER_PATH,
+            '--stop-after-init', '--database=%s' % (db_name),
+            '--log-level=warning',
+            '--addons-path=%s' % (config.ADDONS_LIST),
+            '--init=%s' % (module)])
 
-#        # Test (without coverage)
-#        check_call([
-#            'python', './openerp-command/oe', 'run-tests',
-#            '--database=%s' % (db_name),
-#            '--addons=%s' % (config.ADDONS_LIST),
-#            '--module=%s' % (module)])
+        # Test (without coverage)
+        if os.path.isdir('./%s/%s/tests' % (mod['repository'], module)):
+            check_call([
+                'python', './openerp-command/oe', 'run-tests',
+                '--database=%s' % (db_name),
+                '--addons=%s' % (config.ADDONS_LIST),
+                '--module=%s' % (module)])

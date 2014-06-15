@@ -26,5 +26,6 @@ from subprocess import check_call
 check_call([
     'python', config.SERVER_PATH,
     '--stop-after-init', '--database=%s' % (config.DATABASE_NAME),
+    '--log-level=warning',
     '--addons-path=%s' % (config.ADDONS_ARGS),
     '--init=%s' % (config.MODULES_ARGS)])
