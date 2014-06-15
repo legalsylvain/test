@@ -31,7 +31,8 @@ REPOSITORIES = [
         'name': 'server-env-tools',
         'modules': [
             'auth_admin_passkey']},
-            #'disable_openerp_online'
+]
+# 'disable_openerp_online'
 #    {
 #        'name': 'web-addons',
 #        'modules': [
@@ -43,7 +44,7 @@ REPOSITORIES = [
 #    {
 #        'name': 'openerp-addons-grap',
 #        'modules': None},
-]
+
 
 ADDONS_LIST = './' + ',./'.join(
     [x['name'] for x in REPOSITORIES] + ['ocb-addons', 'ocb-web/addons'])
