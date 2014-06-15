@@ -2,7 +2,6 @@
 [report]
 branch = True
 include =
-    */auth_admin_passkey/*
     */server-env-tools/auth_admin_passkey/*
     */server-env-tools/disable_openerp_online/*
     */web-addons/web_ckeditor4/*
@@ -14,3 +13,4 @@ include =
     */openerp-addons-grap/*
 omit =
     */__init__.py
+    */tests/*
