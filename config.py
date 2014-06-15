@@ -31,12 +31,16 @@ _OFFICIAL_ADDONS = ['ocb-addons', 'ocb-web/addons']
 CUSTOM_ADDONS = [
     {'name': 'server-env-tools', 'module': 'auth_admin_passkey',
         'flake8-except': 'F841'},
-    {'name': 'server-env-tools', 'module': 'disable_openerp_online'},
-    {'name': 'web-addons', 'module': 'web_ckeditor4'},
+    {'name': 'server-env-tools', 'module': 'disable_openerp_online'
+        'flake8': False},
+    {'name': 'web-addons', 'module': 'web_ckeditor4'
+        'flake8': False},
     {'name': 'web-addons', 'module': 'web_confirm_window_close'},
-    {'name': 'web-addons', 'module': 'web_export_view'},
+    {'name': 'web-addons', 'module': 'web_export_view'
+        'flake8': False},
     {'name': 'web-addons', 'module': 'web_popup_large'},
-    {'name': 'web-addons', 'module': 'web_widget_float_formula'},
+    {'name': 'web-addons', 'module': 'web_widget_float_formula'
+        'flake8': False},
     {'name': 'openerp-addons-cis', 'module': None,
         'flake8': False},
     {'name': 'openerp-addons-grap', 'module': None,
