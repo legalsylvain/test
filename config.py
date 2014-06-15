@@ -53,7 +53,7 @@ for rep in REPOSITORIES:
         MODULES += rep['modules']
     else:
         for item in os.listdir('./%s' % (rep['name'])):
-            if (os.path.isdir('./%s/%s' % (rep['name'], item)) 
+            if (os.path.isdir('./%s/%s' % (rep['name'], item))
                     and not item.startswith(".")):
                 MODULES.append(item)
 MODULES_LIST = ','.join(MODULES)

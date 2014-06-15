@@ -3,7 +3,7 @@ from subprocess import check_call
 
 # create new db
 module = 'product'
-db_name = 'test__%s' %(module)
+db_name = 'test__%s' % (module)
 check_call(['createdb', db_name])
 
 # Install Module
