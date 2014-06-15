@@ -12,11 +12,11 @@ if config.COMPLETE_TEST:
             'python', './ocb-server/openerp-server',
             '--stop-after-init', '--database=%s' % (db_name),
             '--addons-path=%s' % (config.ADDONS_LIST),
-            '--init=%s' % (module))
+            '--init=%s' % (module)])
 
         # Test (without coverage)
         check_call([
             'python', './openerp-command/oe', 'run-tests'
             '--database=%s' % (db_name),
             '--addons=%s' % (config.ADDONS_LIST),
-            '--module=%s' % (module))
+            '--module=%s' % (module)])
