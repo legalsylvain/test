@@ -25,7 +25,7 @@ from subprocess import check_call
 
 # Install librairies
 for lib in config.PIP_LIBRAIRIES:
-    check_call(['pip', 'install', 'q', lib])
+    check_call(['pip', 'install', '-q', lib])
 
 # Install Bzr Branches
 for branch in config.BZR_BRANCHES:
