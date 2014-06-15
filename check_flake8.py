@@ -8,7 +8,7 @@ def _check_folder(path, flake8_except):
         if flake8_except:
             check_call([
                 "flake8", path, "--exclude=__init__.py",
-                "--ignore=%s" % (flake8_except])
+                "--ignore=%s" % (flake8_except)])
         else:
             check_call(["flake8", path, "--exclude=__init__.py"])
         return True
