@@ -37,7 +37,7 @@ if config.COMPLETE_TEST:
             'python', config.SERVER_PATH,
             '--stop-after-init', '--database=%s' % (db_name),
             '--log-level=%s' % (config.LOG_LEVEL),
-            '--addons-path=%s' % (config.ADDONS_LIST),
+            '--addons-path=%s' % (config.ADDONS_ARGS),
             '--init=%s' % (module)])
 
         # Test (without coverage)
@@ -46,5 +46,5 @@ if config.COMPLETE_TEST:
             check_call([
                 'python', './openerp-command/oe', 'run-tests',
                 '--database=%s' % (db_name),
-                '--addons=%s' % (config.ADDONS_LIST),
+                '--addons=%s' % (config.ADDONS_ARGS),
                 '--module=%s' % (module)])
