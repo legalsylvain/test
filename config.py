@@ -26,36 +26,36 @@ COMPLETE_TEST = True
 
 DATABASE_NAME = 'test__all'
 
-REPOSITORIES = [
-    {
-        'name': 'server-env-tools',
-        'modules': [
-            'auth_admin_passkey', 'disable_openerp_online']},
+_OFFICIAL_ADDONS = ['ocb-addons', 'ocb-web/addons']
+
+CUSTOM_ADDONS = [
+    {'name': 'server-env-tools', 'module': 'auth_admin_passkey',
+        'flake8-except': 'F841'},
+    {'name': 'server-env-tools', 'module': 'disable_openerp_online'},
+    {'name': 'web-addons', 'module': 'web_ckeditor4'},
+    {'name': 'web-addons', 'module': 'web_confirm_window_close'},
+    {'name': 'web-addons', 'module': 'web_export_view'},
+    {'name': 'web-addons', 'module': 'web_popup_large'},
+    {'name': 'web-addons', 'module': 'web_widget_float_formula'},
+    {'name': 'openerp-addons-cis', 'module': None,
+        'flake8': False},
+    {'name': 'openerp-addons-grap', 'module': None,
+        'flake8': False},
 ]
-#
-#    {
-#        'name': 'web-addons',
-#        'modules': [
-#            'web_ckeditor4', 'web_confirm_window_close', 'web_export_view',
-#            'web_popup_large', 'web_widget_float_formula']},
-#    {
-#        'name': 'openerp-addons-cis',
-#        'modules': None},
-#    {
-#        'name': 'openerp-addons-grap',
-#        'modules': None},
+
+tmp = [x['name'] for x in CUSTOM_ADDONS] + _OFFICIAL_ADDONS
+
+ADDONS_ARGS = './' + ',./'.join(list(set(tmp)))
 
 
-ADDONS_LIST = './' + ',./'.join(
-    [x['name'] for x in REPOSITORIES] + ['ocb-addons', 'ocb-web/addons'])
 
-MODULES = []
-for rep in REPOSITORIES:
-    if rep['modules']:
-        MODULES += rep['modules']
-    else:
-        for item in os.listdir('./%s' % (rep['name'])):
-            if (os.path.isdir('./%s/%s' % (rep['name'], item))
-                    and not item.startswith(".")):
-                MODULES.append(item)
-MODULES_LIST = ','.join(MODULES)
+#MODULES = []
+#for rep in REPOSITORIES:
+#    if rep['modules']:
+#        MODULES += rep['modules']
+#    else:
+#        for item in os.listdir('./%s' % (rep['name'])):
+#            if (os.path.isdir('./%s/%s' % (rep['name'], item))
+#                    and not item.startswith(".")):
+#                MODULES.append(item)
+#MODULES_LIST = ','.join(MODULES)

@@ -31,16 +31,16 @@ install:
     - pip install -q coveralls flake8
 
 # Install Librairies for Odoo
-    - pip install -q python-dateutil feedparser gdata python-ldap lxml mako python-openid psycopg2 babel pydot pyparsing reportlab simplejson vatnumber vobject python-webdav werkzeug xlwt unittest2 docutils jinja2 mock psutil pygments roman fpconst soappy cairosvg
-    - pip install -q http://download.gna.org/pychart/PyChart-1.39.tar.gz
+###    - pip install -q python-dateutil feedparser gdata python-ldap lxml mako python-openid psycopg2 babel pydot pyparsing reportlab simplejson vatnumber vobject python-webdav werkzeug xlwt unittest2 docutils jinja2 mock psutil pygments roman fpconst soappy cairosvg
+###    - pip install -q http://download.gna.org/pychart/PyChart-1.39.tar.gz
 
 # Install openerp-command branch to run tests
-    - bzr branch --stacked lp:~openerp/openerp-command/7.0 ./openerp-command
+###    - bzr branch --stacked lp:~openerp/openerp-command/7.0 ./openerp-command
 
 # Install OCB branches used in production
-    - bzr branch --stacked lp:~ocb/ocb-server/7.0 ./ocb-server
-    - bzr branch --stacked lp:~ocb/ocb-addons/7.0 ./ocb-addons
-    - bzr branch --stacked lp:~ocb/ocb-web/7.0 ./ocb-web
+###    - bzr branch --stacked lp:~ocb/ocb-server/7.0 ./ocb-server
+###    - bzr branch --stacked lp:~ocb/ocb-addons/7.0 ./ocb-addons
+###    - bzr branch --stacked lp:~ocb/ocb-web/7.0 ./ocb-web
 
 # Install Community branches used in production
     - bzr branch --stacked lp:server-env-tools/7.0 ./server-env-tools
@@ -52,23 +52,19 @@ install:
 
 # Create database for test
 before_script:
-    - echo "Tested Repositories"
-    - python -c 'import config; print(config.ADDONS_LIST)'
-    - echo "Tested Modules"
-    - python -c 'import config; print(config.MODULES_LIST)'
     - createdb $(python -c 'import config; print(config.DATABASE_NAME)')
     - export PYTHONPATH=$PYTHONPATH:./ocb-server/
 
 
 script:
-# Flake8: ignore F401 for __init__.py files; ignore F841 for other files;
-###    - python ./check_flake8.py
+# Flake8: ignore F401 for __init__.py files;
+    - python ./check_flake8.py
 
 # Installation Test
 ###    - python ./check_test_base.py
-    - python ./check_install.py
-    - python ./check_test_all.py
-    - python ./check_test_distinct.py
+###    - python ./check_install.py
+###    - python ./check_test_all.py
+###    - python ./check_test_distinct.py
 
-after_success:
-    coveralls
+### after_success:
+###    coveralls
