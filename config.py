@@ -30,9 +30,9 @@ REPOSITORIES = [
     {
         'name': 'server-env-tools',
         'modules': [
-            'auth_admin_passkey']},
+            'auth_admin_passkey', 'disable_openerp_online']},
 ]
-# 'disable_openerp_online'
+#
 #    {
 #        'name': 'web-addons',
 #        'modules': [
