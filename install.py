@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    Travis and Coveralls Configuration
-#    Copyright (C) 2013-2014 GRAP (http://www.grap.coop)
+#    Copyright (C) 2014 GRAP (http://www.grap.coop)
 #    @author Sylvain LE GAL (https://twitter.com/legalsylvain)
 #
 #    This program is free software: you can redistribute it and/or modify

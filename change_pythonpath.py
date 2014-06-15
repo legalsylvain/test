@@ -20,15 +20,6 @@
 #
 ##############################################################################
 
-import os
-import config
 from subprocess import check_call
 
-for module in config.MODULES:
-    if os.path.isdir('./%s/%s/tests' % (module['repository'], module['name'])):
-        print "Testing '%s' on global database" % (module['name'])
-        check_call([
-            'coverage', 'run', './openerp-command/oe', 'run-tests',
-            '--database=%s' % (config.DATABASE_NAME),
-            '--addons=%s' % (config.ADDONS_ARGS),
-            '--module=%s' % (module['name'])])
+check_call(['export', 'PYTHONPATH=$PYTHONPATH:%s' %(config.EXTRA_PYTHONPATH)])

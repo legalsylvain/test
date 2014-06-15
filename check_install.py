@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    Travis and Coveralls Configuration
-#    Copyright (C) 2013-2014 GRAP (http://www.grap.coop)
+#    Copyright (C) 2014 GRAP (http://www.grap.coop)
 #    @author Sylvain LE GAL (https://twitter.com/legalsylvain)
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -26,6 +26,6 @@ from subprocess import check_call
 check_call([
     'python', config.SERVER_PATH,
     '--stop-after-init', '--database=%s' % (config.DATABASE_NAME),
-    '--log-level=warning',
+    '--log-level=%' % (config.LOG_LEVEL),
     '--addons-path=%s' % (config.ADDONS_ARGS),
     '--init=%s' % (config.MODULES_ARGS)])
