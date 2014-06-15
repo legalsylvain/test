@@ -64,9 +64,10 @@ script:
 ###    - python ./check_flake8.py
 
 # Installation Test
-    - python ./check_install.py
-    - python ./check_test_all.py
-    - python ./check_test_distinct.py
+    - python ./check_test_base.py
+###    - python ./check_install.py
+###    - python ./check_test_all.py
+###    - python ./check_test_distinct.py
 
 after_success:
     coveralls

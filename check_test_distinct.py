@@ -16,7 +16,7 @@ if config.COMPLETE_TEST:
 
         # Test (without coverage)
         check_call([
-            'python', './openerp-command/oe', 'run-tests'
+            'python', './openerp-command/oe', 'run-tests',
             '--database=%s' % (db_name),
             '--addons=%s' % (config.ADDONS_LIST),
             '--module=%s' % (module)])
