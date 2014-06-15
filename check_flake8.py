@@ -18,15 +18,15 @@ def _check_folder(path, flake8_except):
 ok = True
 
 for addons in config.CUSTOM_ADDONS:
-    if rep.getitem('flake8', True):
-        if rep['module']:
+    if addons.getitem('flake8', True):
+        if addons['module']:
                 ok = _check_folder(
-                    './%s/%s' % (rep['name'], rep['module']),
-                    rep.getitem('flake8-except', None)) and ok
+                    './%s/%s' % (addons['name'], addons['module']),
+                    addons.getitem('flake8-except', None)) and ok
         else:
             ok = _check_folder(
-                './%s' % (rep['name']),
-                rep.getitem('flake8-except', None)) and ok
+                './%s' % (addons['name']),
+                addons.getitem('flake8-except', None)) and ok
 
 if not ok:
     raise Exception('Flake8 Error')
