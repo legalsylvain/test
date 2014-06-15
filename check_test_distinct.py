@@ -36,13 +36,13 @@ if config.COMPLETE_TEST:
         check_call([
             'python', config.SERVER_PATH,
             '--stop-after-init', '--database=%s' % (db_name),
-            '--log-level=%' % (config.LOG_LEVEL),
+            '--log-level=%s' % (config.LOG_LEVEL),
             '--addons-path=%s' % (config.ADDONS_LIST),
             '--init=%s' % (module)])
 
         # Test (without coverage)
         if os.path.isdir('./%s/%s/tests' % (mod['repository'], module)):
-        p   print "Testing '%s' on a specific database" % (module['name'])
+            print "Testing '%s' on a specific database" % (module['name'])
             check_call([
                 'python', './openerp-command/oe', 'run-tests',
                 '--database=%s' % (db_name),
