@@ -42,7 +42,7 @@ if config.COMPLETE_TEST:
 
         # Test (without coverage)
         if os.path.isdir('./%s/%s/tests' % (mod['repository'], module)):
-            print "Testing '%s' on a specific database" % (module['name'])
+            print "Testing '%s' on a specific database" % (module)
             check_call([
                 'python', './openerp-command/oe', 'run-tests',
                 '--database=%s' % (db_name),
