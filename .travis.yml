@@ -37,7 +37,7 @@ before_script:
 # Create database for test
     - createdb $(python -c 'import config; print(config.DATABASE_NAME)')
 # Change python path to make openerp-command working
-    - python ./change_pythonpath.py
+    - export PYTHONPATH=$PYTHONPATH:./ocb-server/
 
 script:
 # Flake8 test (ignoring F401 for __init__.py files)
