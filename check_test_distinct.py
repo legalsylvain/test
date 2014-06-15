@@ -20,7 +20,7 @@
 #
 ##############################################################################
 
-impor os
+import os
 import config
 from subprocess import check_call
 
