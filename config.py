@@ -97,11 +97,15 @@ ADDONS_ARGS = './' + ',./'.join(list(set(tmp)))
 MODULES = []
 for addons in CUSTOM_ADDONS:
     if addons['module']:
-        MODULES += {'repository': addons['name'], 'name': addons['module']}
+        MODULES.append({
+            'repository': addons['name'],
+            'name': addons['module']})
     else:
         for item in os.listdir('./%s' % (addons['name'])):
             if (os.path.isdir('./%s/%s' % (addons['name'], item))
                     and not item.startswith(".")):
-                MODULES.append({'repository': addons['name'], 'name': item})
+                MODULES.append({
+                    'repository': addons['name'],
+                    'name': item})
 
 MODULES_ARGS = ','.join([x['name'] for x in MODULES])
