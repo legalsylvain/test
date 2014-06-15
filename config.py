@@ -35,25 +35,25 @@ OFFICIAL_PIP_LIBRAIRIES = [
 ]
 
 CUSTOM_PIP_LIBRAIRIES = [
-    'cairosvg'
+    'cairosvg',
 ]
 
 OFFICIAL_BZR_BRANCHES = [
-    'url': 'lp:~ocb/ocb-server/7.0', 'name': 'ocb-server',
-    'url': 'lp:~ocb/ocb-addons/7.0', 'name': 'ocb-addons',
-    'url': 'lp:~ocb/ocb-web/7.0', 'name': 'ocb-web',
-    'url': 'lp:~openerp/openerp-command/7.0', 'name': 'openerp-command',
+    {'url': 'lp:~ocb/ocb-server/7.0', 'name': 'ocb-server'},
+    {'url': 'lp:~ocb/ocb-addons/7.0', 'name': 'ocb-addons'},
+    {'url': 'lp:~ocb/ocb-web/7.0', 'name': 'ocb-web'},
+    {'url': 'lp:~openerp/openerp-command/7.0', 'name': 'openerp-command'},
 ]
 
 CUSTOM_BZR_BRANCHES = [
-    'url': 'lp:server-env-tools/7.0', 'name': 'server-env-tools',
-    'url': 'lp:web-addons/7.0', 'name': 'web-addons',
-#    'url': 'lp:openerp-addons-cis/7.0', 'name': 'openerp-addons-cis',
-#    'url': 'lp:openerp-addons-grap/7.0', 'name': 'openerp-addons-grap',
+    {'url': 'lp:server-env-tools/7.0', 'name': 'server-env-tools'},
+    {'url': 'lp:web-addons/7.0', 'name': 'web-addons'},
+#    {'url': 'lp:openerp-addons-cis/7.0', 'name': 'openerp-addons-cis'},
+#    {'url': 'lp:openerp-addons-grap/7.0', 'name': 'openerp-addons-grap'},
 ]
 
 CUSTOM_PIP_LIBRAIRIES = [
-    'cairosvg'
+    'cairosvg',
 ]
 
 COMPLETE_TEST = True
