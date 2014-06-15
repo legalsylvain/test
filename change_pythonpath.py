@@ -20,6 +20,7 @@
 #
 ##############################################################################
 
+import config
 from subprocess import check_call
 
 check_call(['export', 'PYTHONPATH=$PYTHONPATH:%s' %(config.EXTRA_PYTHONPATH)])
