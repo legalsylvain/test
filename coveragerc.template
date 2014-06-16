@@ -1,0 +1,8 @@
+# For more information, see http://nedbatchelder.com/code/coverage/config.html
+[report]
+branch = True
+include =
+    {include}
+omit =
+    */__init__.py
+    */tests/*

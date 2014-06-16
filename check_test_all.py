@@ -24,6 +24,21 @@ import os
 import config
 from subprocess import check_call
 
+# Write .coveragerc file
+text = []
+for module in config.CUSTOM_ADDONS:
+    if module['module']:
+        text.append('*/%s/%s/*' % (module['name'], module['module']))
+    else:
+        text.append('*/%s/*' % (module['name']))
+content = open('./coveragerc.template', 'r').read()
+content = content.replace('{include}', '\n    '.join(text))
+
+fo = open("./.coveragerc", "w")
+fo.write(content)
+fo.close()
+
+# Realize test and coverage
 for module in config.MODULES:
     if os.path.isdir('./%s/%s/tests' % (module['repository'], module['name'])):
         print "Testing '%s' on global database" % (module['name'])
