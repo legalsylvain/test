@@ -73,6 +73,8 @@ CUSTOM_ADDONS = [
         'flake8': False, 'flake8-except': 'F841'},
     {'name': 'server-env-tools', 'module': 'disable_openerp_online',
         'flake8': False},
+    {'name': 'server-env-tools', 'module': 'mass_editing',
+        'flake8': False},
     {'name': 'web-addons', 'module': 'web_ckeditor4',
         'flake8': False},
     {'name': 'web-addons', 'module': 'web_confirm_window_close'},
