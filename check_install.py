@@ -28,4 +28,4 @@ check_call([
     '--stop-after-init', '--database=%s' % (config.DATABASE_NAME),
     '--log-level=%s' % (config.LOG_LEVEL),
     '--addons-path=%s' % (config.ADDONS_ARGS),
-    '--init=%s' % (config.MODULES_ARGS)])
+    '--init=%s' % (config.MODULES_ARGS())])

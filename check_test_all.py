@@ -39,7 +39,7 @@ fo.write(content)
 fo.close()
 
 # Realize test and coverage
-for module in config.MODULES:
+for module in config.MODULES():
     if os.path.isdir('./%s/%s/tests' % (module['repository'], module['name'])):
         print "Testing '%s' on global database" % (module['name'])
         check_call([

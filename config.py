@@ -100,18 +100,21 @@ BZR_BRANCHES = OFFICIAL_BZR_BRANCHES + CUSTOM_BZR_BRANCHES
 tmp = [x['name'] for x in CUSTOM_ADDONS] + OFFICIAL_ADDONS
 ADDONS_ARGS = './' + ',./'.join(list(set(tmp)))
 
-MODULES = []
-for addons in CUSTOM_ADDONS:
-    if addons['module']:
-        MODULES.append({
-            'repository': addons['name'],
-            'name': addons['module']})
-    else:
-        for item in os.listdir('./%s' % (addons['name'])):
-            if (os.path.isdir('./%s/%s' % (addons['name'], item))
-                    and not item.startswith(".")):
-                MODULES.append({
-                    'repository': addons['name'],
-                    'name': item})
+def MODULES():
+    res = []
+    for addons in CUSTOM_ADDONS:
+        if addons['module']:
+            res.append({
+                'repository': addons['name'],
+                'name': addons['module']})
+        else:
+            for item in os.listdir('./%s' % (addons['name'])):
+                if (os.path.isdir('./%s/%s' % (addons['name'], item))
+                        and not item.startswith(".")):
+                    res.append({
+                        'repository': addons['name'],
+                        'name': item})
+    return res
 
-MODULES_ARGS = ','.join([x['name'] for x in MODULES])
+def MODULES_ARGS():
+    return ','.join([x['name'] for x in MODULES()])

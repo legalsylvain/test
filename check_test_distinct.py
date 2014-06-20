@@ -25,7 +25,7 @@ import config
 from subprocess import check_call
 
 if config.COMPLETE_TEST:
-    for mod in config.MODULES:
+    for mod in config.MODULES():
         module = mod['name']
         print "Installing '%s' on a specific database" % (module)
         # create new db
