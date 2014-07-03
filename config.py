@@ -84,7 +84,7 @@ CUSTOM_ADDONS = [
     {'name': 'web-addons', 'module': 'web_widget_float_formula',
         'flake8': False},
     {'name': 'openerp-addons-cis', 'module': None},
-    {'name': 'openerp-addons-grap', 'module': 'pos_invoicing'},
+    {'name': 'openerp-addons-grap', 'module': 'pos_multicompany'},
 ]
 
 ##############################################################################
