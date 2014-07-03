@@ -46,7 +46,7 @@ OFFICIAL_BZR_BRANCHES = [
 ]
 
 CUSTOM_BZR_BRANCHES = [
-#    {'url': 'lp:server-env-tools/7.0', 'name': 'server-env-tools'},
+    {'url': 'lp:server-env-tools/7.0', 'name': 'server-env-tools'},
 #    {'url': 'lp:web-addons/7.0', 'name': 'web-addons'},
 #    {'url': 'lp:openerp-addons-cis/7.0', 'name': 'openerp-addons-cis'},
     {'url': 'lp:openerp-addons-grap/7.0', 'name': 'openerp-addons-grap'},
@@ -69,12 +69,12 @@ DATABASE_NAME = 'test__all'
 OFFICIAL_ADDONS = ['ocb-addons', 'ocb-web/addons']
 
 CUSTOM_ADDONS = [
-#    {'name': 'server-env-tools', 'module': 'auth_admin_passkey',
-#        'flake8': False, 'flake8-except': 'F841'},
-#    {'name': 'server-env-tools', 'module': 'disable_openerp_online',
-#        'flake8': False},
-#    {'name': 'server-env-tools', 'module': 'mass_editing',
-#        'flake8': False},
+    {'name': 'server-env-tools', 'module': 'auth_admin_passkey',
+        'flake8': False, 'flake8-except': 'F841'},
+    {'name': 'server-env-tools', 'module': 'disable_openerp_online',
+        'flake8': False},
+    {'name': 'server-env-tools', 'module': 'mass_editing',
+        'flake8': False},
 #    {'name': 'web-addons', 'module': 'web_ckeditor4',
 #        'flake8': False},
 #    {'name': 'web-addons', 'module': 'web_confirm_window_close'},
