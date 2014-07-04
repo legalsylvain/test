@@ -47,7 +47,7 @@ OFFICIAL_BZR_BRANCHES = [
 
 CUSTOM_BZR_BRANCHES = [
     {'url': 'lp:server-env-tools/7.0', 'name': 'server-env-tools'},
-#    {'url': 'lp:web-addons/7.0', 'name': 'web-addons'},
+    {'url': 'lp:web-addons/7.0', 'name': 'web-addons'},
 #    {'url': 'lp:openerp-addons-cis/7.0', 'name': 'openerp-addons-cis'},
     {'url': 'lp:openerp-addons-grap/7.0', 'name': 'openerp-addons-grap'},
 ]
@@ -75,8 +75,8 @@ CUSTOM_ADDONS = [
         'flake8': False},
     {'name': 'server-env-tools', 'module': 'mass_editing',
         'flake8': False},
-#    {'name': 'web-addons', 'module': 'web_ckeditor4',
-#        'flake8': False},
+    {'name': 'web-addons', 'module': 'web_ckeditor4',
+        'flake8': False},
 #    {'name': 'web-addons', 'module': 'web_confirm_window_close'},
 #    {'name': 'web-addons', 'module': 'web_export_view',
 #        'flake8': False},
