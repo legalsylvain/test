@@ -82,7 +82,7 @@ CUSTOM_ADDONS = [
         'flake8': False},
     {'name': 'web-addons', 'module': 'web_popup_large'},
     {'name': 'web-addons', 'module': 'web_widget_float_formula',
-#        'flake8': False},
+        'flake8': False},
 #    {'name': 'openerp-addons-cis', 'module': None},
     {'name': 'openerp-addons-grap', 'module': 'pos_multicompany'},
 ]
