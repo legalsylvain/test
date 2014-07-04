@@ -48,7 +48,7 @@ OFFICIAL_BZR_BRANCHES = [
 CUSTOM_BZR_BRANCHES = [
     {'url': 'lp:server-env-tools/7.0', 'name': 'server-env-tools'},
     {'url': 'lp:web-addons/7.0', 'name': 'web-addons'},
-#    {'url': 'lp:openerp-addons-cis/7.0', 'name': 'openerp-addons-cis'},
+    {'url': 'lp:openerp-addons-cis/7.0', 'name': 'openerp-addons-cis'},
     {'url': 'lp:openerp-addons-grap/7.0', 'name': 'openerp-addons-grap'},
 ]
 
@@ -83,7 +83,7 @@ CUSTOM_ADDONS = [
     {'name': 'web-addons', 'module': 'web_popup_large'},
     {'name': 'web-addons', 'module': 'web_widget_float_formula',
         'flake8': False},
-#    {'name': 'openerp-addons-cis', 'module': None},
+    {'name': 'openerp-addons-cis', 'module': 'base_fiscal_company'},
     {'name': 'openerp-addons-grap', 'module': 'pos_multicompany'},
 ]
 
