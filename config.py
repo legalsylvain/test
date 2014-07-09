@@ -79,8 +79,9 @@ CUSTOM_ADDONS = [
     {'name': 'web-addons', 'module': 'web_widget_float_formula', 'flake8': False},
     {'name': 'openerp-addons-cis', 'module': 'base_fiscal_company'},
     {'name': 'openerp-addons-grap', 'module': 'pos_multicompany'},
-    {'name': 'openerp-addons-grap', 'module': 'product_unique_default_code'},
+    {'name': 'openerp-addons-grap', 'module': 'pos_street_market'},
     {'name': 'openerp-addons-grap', 'module': 'product_taxes_required'},
+    {'name': 'openerp-addons-grap', 'module': 'product_unique_default_code'},
 ]
 
 ##############################################################################
