@@ -80,6 +80,7 @@ CUSTOM_ADDONS = [
     {'name': 'openerp-addons-cis', 'module': 'base_fiscal_company'},
     {'name': 'openerp-addons-grap', 'module': 'pos_multicompany'},
     {'name': 'openerp-addons-grap', 'module': 'product_unique_default_code'},
+    {'name': 'openerp-addons-grap', 'module': 'product_taxes_required'},
 ]
 
 ##############################################################################
