@@ -27,6 +27,7 @@ from subprocess import check_call
 if config.COMPLETE_TEST:
     for mod in config.MODULES():
         module = mod['name']
+        print "*" * 120
         print "Installing '%s' on a specific database" % (module)
         # create new db
         db_name = 'test__%s' % (module)
