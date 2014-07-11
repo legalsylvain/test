@@ -48,3 +48,6 @@ if config.COMPLETE_TEST:
                 '--database=%s' % (db_name),
                 '--addons=%s' % (config.ADDONS_ARGS),
                 '--module=%s' % (module)])
+
+        # delete db
+        check_call(['dropdb', db_name])
