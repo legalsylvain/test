@@ -34,8 +34,6 @@ install:
     - python ./install.py
 
 before_script:
-# Create database for test
-    - createdb $(python -c 'import config; print(config.DATABASE_NAME)')
 # Change python path to make openerp-command working
     - export PYTHONPATH=$PYTHONPATH:./ocb-server/
 
@@ -43,13 +41,16 @@ script:
 # Flake8 test (ignoring F401 for __init__.py files)
     - python ./check_flake8.py
 
+# Create Master database for test
+    - createdb $(python -c 'import config; print(config.DATABASE_NAME)')
 # Installation Test
     - python ./check_install.py
-
 # Unittests + Coverage compute
     - python ./check_test_all.py
+# Delete Master database for test
+    - dropdb $(python -c 'import config; print(config.DATABASE_NAME)')
 
-# Distinct test (only if 
+# Distinct test (only if COMPLETE_TEST is set)
     - python ./check_test_distinct.py
 
 after_success:
