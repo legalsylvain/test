@@ -84,6 +84,7 @@ CUSTOM_ADDONS = [
     {'name': 'openerp-addons-grap', 'module': 'pos_backup_draft_orders'},
     {'name': 'openerp-addons-grap', 'module': 'pos_board'},
     {'name': 'openerp-addons-grap', 'module': 'pos_both_mode'},
+    {'name': 'openerp-addons-grap', 'module': 'pos_improve_header'},
     {'name': 'openerp-addons-grap', 'module': 'pos_multicompany'},
     {'name': 'openerp-addons-grap', 'module': 'pos_second_header'},
     {'name': 'openerp-addons-grap', 'module': 'pos_street_market'},
