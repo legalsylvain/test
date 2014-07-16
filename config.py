@@ -80,6 +80,9 @@ CUSTOM_ADDONS = [
     {'name': 'openerp-addons-cis', 'module': False},
 #    {'name': 'openerp-addons-grap', 'module': 'grap_change_access'},
 #    {'name': 'openerp-addons-grap', 'module': 'grap_change_views'},
+    {'name': 'openerp-addons-grap', 'module': 'fix_menu_logo_firefox'},
+    {'name': 'openerp-addons-grap', 'module': 'fix_pos_change_pricelist'},
+
     {'name': 'openerp-addons-grap', 'module': 'grap_pos_board_fiscal_company'},
     {'name': 'openerp-addons-grap', 'module': 'pos_backup_draft_orders'},
     {'name': 'openerp-addons-grap', 'module': 'pos_board'},
