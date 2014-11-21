@@ -102,7 +102,7 @@ CUSTOM_ADDONS = [
     {'name': 'openerp-french-localization', 'module': 'l10n_fr_department'},
     {'name': 'openerp-french-localization', 'module': 'l10n_fr_state'},
 
-    {'name': 'report-engine', 'module': 'report_xls'},
+    {'name': 'reporting-engine', 'module': 'report_xls'},
 
     {'name': 'server-tools', 'module': 'auth_admin_passkey'},
     {'name': 'server-tools', 'module': 'cron_run_manually'},
