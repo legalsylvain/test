@@ -33,3 +33,9 @@ for branch in config.BZR_BRANCHES:
         'bzr', 'branch', '--stacked',
         branch['url'], './%s' % (branch['name'])])
 
+# Install Git Branches
+for branch in config.GIT_BRANCHES:
+    check_call([
+        'git', 'clone', '--depth 1',
+        branch['url'], './%s' % (branch['name'])])
+

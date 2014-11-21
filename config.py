@@ -23,7 +23,7 @@
 import os
 
 ##############################################################################
-# Params
+# Librairies
 ##############################################################################
 
 OFFICIAL_PIP_LIBRAIRIES = [
@@ -38,18 +38,41 @@ CUSTOM_PIP_LIBRAIRIES = [
     'cairosvg',
 ]
 
-OFFICIAL_BZR_BRANCHES = [
+##############################################################################
+# Source Code
+##############################################################################
+
+BZR_BRANCHES = [
     {'url': 'lp:~ocb/ocb-server/7.0', 'name': 'ocb-server'},
     {'url': 'lp:~ocb/ocb-addons/7.0', 'name': 'ocb-addons'},
     {'url': 'lp:~ocb/ocb-web/7.0', 'name': 'ocb-web'},
     {'url': 'lp:~openerp/openerp-command/7.0', 'name': 'openerp-command'},
+    {'url': """http://bazaar.launchpad.net/~openerp-fr-core-editors/"""
+        """openerp-french-localization/7.0/""",
+        'name': 'openerp-french-localization'},
 ]
 
-CUSTOM_BZR_BRANCHES = [
-    {'url': 'lp:server-env-tools/7.0', 'name': 'server-env-tools'},
-    {'url': 'lp:web-addons/7.0', 'name': 'web-addons'},
-    {'url': 'lp:openerp-addons-cis/7.0', 'name': 'openerp-addons-cis'},
-    {'url': 'lp:openerp-addons-grap/7.0', 'name': 'openerp-addons-grap'},
+GIT_BRANCHES = [
+    {'url': 'https://github.com/OCA/account-financial-reporting -b 7.0',
+        'name': 'account-financial-reporting'},
+    {'url': 'https://github.com/OCA/account-financial-tools -b 7.0',
+        'name': 'account-financial-tools'},
+    {'url': 'https://github.com/OCA/reporting-engine -b 7.0',
+        'name': 'reporting-engine'},
+    {'url': 'https://github.com/OCA/server-tools -b 7.0',
+        'name': 'server-tools'},
+    {'url': 'https://github.com/OCA/web -b 7.0',
+        'name': 'web'},
+
+
+    #    {'url': 'https://github.com/grap/odoo-addons-grap -b 7.0',
+    #        'name': 'openerp-addons-grap'},
+    #    {'url': 'https://github.com/grap/odoo-addons-cis.git -b 7.0',
+    #        'name': 'openerp-addons-cis'},
+    #    {'url': 'https://github.com/grap/odoo-addons-misc.git -b 7.0',
+    #        'name': 'openerp-addons-misc'},
+    #    {'url': 'https://github.com/grap/odoo-addons-cpo.git -b 7.0',
+    #        'name': 'openerp-addons-cpo'},
 ]
 
 CUSTOM_PIP_LIBRAIRIES = [
@@ -69,33 +92,35 @@ DATABASE_NAME = 'test__all'
 OFFICIAL_ADDONS = ['ocb-addons', 'ocb-web/addons']
 
 CUSTOM_ADDONS = [
-    {'name': 'server-env-tools', 'module': 'auth_admin_passkey', 'flake8': False, 'flake8-except': 'F841'},
-    {'name': 'server-env-tools', 'module': 'disable_openerp_online'},
-    {'name': 'server-env-tools', 'module': 'mass_editing', 'flake8': False},
-    {'name': 'web-addons', 'module': 'web_ckeditor4', 'flake8': False},
-    {'name': 'web-addons', 'module': 'web_confirm_window_close'},
-    {'name': 'web-addons', 'module': 'web_export_view', 'flake8': False},
-    {'name': 'web-addons', 'module': 'web_popup_large'},
-    {'name': 'web-addons', 'module': 'web_widget_float_formula', 'flake8': False},
-    {'name': 'openerp-addons-cis', 'module': False},
-#    {'name': 'openerp-addons-grap', 'module': 'grap_change_access'},
-#    {'name': 'openerp-addons-grap', 'module': 'grap_change_views'},
-    {'name': 'openerp-addons-grap', 'module': 'fix_menu_logo_firefox'},
-    {'name': 'openerp-addons-grap', 'module': 'fix_pos_change_pricelist'},
+    {'name': 'account-financial-reporting',
+        'module': 'account_financial_report_webkit'},
+    {'name': 'account-financial-reporting',
+        'module': 'account_financial_report_webkit_xls'},
 
-    {'name': 'openerp-addons-grap', 'module': 'grap_pos_board_fiscal_company'},
-    {'name': 'openerp-addons-grap', 'module': 'pos_backup_draft_orders'},
-    {'name': 'openerp-addons-grap', 'module': 'pos_board'},
-    {'name': 'openerp-addons-grap', 'module': 'pos_both_mode'},
-    {'name': 'openerp-addons-grap', 'module': 'pos_improve_header'},
-    {'name': 'openerp-addons-grap', 'module': 'pos_improve_images'},
-#    {'name': 'openerp-addons-grap', 'module': 'pos_invoicing'}, # inconmpatibility with pos_keep_draft_orders
-    {'name': 'openerp-addons-grap', 'module': 'pos_keep_draft_orders'},
-    {'name': 'openerp-addons-grap', 'module': 'pos_multicompany'},
-    {'name': 'openerp-addons-grap', 'module': 'pos_second_header'},
-    {'name': 'openerp-addons-grap', 'module': 'pos_street_market'},
-    {'name': 'openerp-addons-grap', 'module': 'product_taxes_required'},
-    {'name': 'openerp-addons-grap', 'module': 'product_unique_default_code'},
+    {'name': 'account-financial-tools', 'module': 'account_tax_update'},
+
+    {'name': 'openerp-french-localization', 'module': 'l10n_fr_department'},
+    {'name': 'openerp-french-localization', 'module': 'l10n_fr_state'},
+
+    {'name': 'report-engine', 'module': 'report_xls'},
+
+    {'name': 'server-tools', 'module': 'auth_admin_passkey'},
+    {'name': 'server-tools', 'module': 'cron_run_manually'},
+    {'name': 'server-tools', 'module': 'disable_openerp_online'},
+    {'name': 'server-tools', 'module': 'mass_editing'},
+    {'name': 'server-tools', 'module': 'module_parent_dependencies'},
+
+    {'name': 'web', 'module': 'web_ckeditor4'},
+    {'name': 'web', 'module': 'web_color'},
+    {'name': 'web', 'module': 'web_confirm_window_close'},
+    {'name': 'web', 'module': 'web_export_view'},
+    {'name': 'web', 'module': 'web_popup_large'},
+    {'name': 'web', 'module': 'web_widget_float_formula'},
+
+    #    {'name': 'openerp-addons-cis', 'module': False},
+    #    {'name': 'openerp-addons-grap', 'module': False},
+    #    {'name': 'openerp-addons-cpo', 'module': False},
+    #    {'name': 'openerp-addons-misc', 'module': False},
 ]
 
 ##############################################################################
@@ -103,7 +128,6 @@ CUSTOM_ADDONS = [
 ##############################################################################
 
 PIP_LIBRAIRIES = OFFICIAL_PIP_LIBRAIRIES + CUSTOM_PIP_LIBRAIRIES
-BZR_BRANCHES = OFFICIAL_BZR_BRANCHES + CUSTOM_BZR_BRANCHES
 
 
 tmp = [x['name'] for x in CUSTOM_ADDONS] + OFFICIAL_ADDONS
