@@ -29,6 +29,7 @@ for lib in config.PIP_LIBRAIRIES:
 
 # Install Bzr Branches
 for branch in config.BZR_BRANCHES:
-    check_call(['bzr', 'branch', '--stacked',
+    check_call([
+        'bzr', 'branch', '--stacked',
         branch['url'], './%s' % (branch['name'])])
 

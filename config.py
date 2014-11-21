@@ -109,6 +109,7 @@ BZR_BRANCHES = OFFICIAL_BZR_BRANCHES + CUSTOM_BZR_BRANCHES
 tmp = [x['name'] for x in CUSTOM_ADDONS] + OFFICIAL_ADDONS
 ADDONS_ARGS = './' + ',./'.join(list(set(tmp)))
 
+
 def MODULES():
     res = []
     for addons in CUSTOM_ADDONS:
@@ -124,6 +125,7 @@ def MODULES():
                         'repository': addons['name'],
                         'name': item})
     return res
+
 
 def MODULES_ARGS():
     return ','.join([x['name'] for x in MODULES()])
