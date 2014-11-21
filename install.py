@@ -36,6 +36,6 @@ for branch in config.BZR_BRANCHES:
 # Install Git Branches
 for branch in config.GIT_BRANCHES:
     check_call([
-        'git', 'clone', '--depth 1',
+        'git', 'clone', '--depth=1', '--branch=%s' % (branch['branch']),
         branch['url'], './%s' % (branch['name'])])
 

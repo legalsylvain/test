@@ -53,16 +53,16 @@ BZR_BRANCHES = [
 ]
 
 GIT_BRANCHES = [
-    {'url': 'https://github.com/OCA/account-financial-reporting -b 7.0',
-        'name': 'account-financial-reporting'},
-    {'url': 'https://github.com/OCA/account-financial-tools -b 7.0',
-        'name': 'account-financial-tools'},
-    {'url': 'https://github.com/OCA/reporting-engine -b 7.0',
-        'name': 'reporting-engine'},
-    {'url': 'https://github.com/OCA/server-tools -b 7.0',
-        'name': 'server-tools'},
-    {'url': 'https://github.com/OCA/web -b 7.0',
-        'name': 'web'},
+    {'url': 'https://github.com/OCA/account-financial-reporting',
+        'branch': '7.0', 'name': 'account-financial-reporting'},
+    {'url': 'https://github.com/OCA/account-financial-tools',
+        'branch': '7.0', 'name': 'account-financial-tools'},
+    {'url': 'https://github.com/OCA/reporting-engine',
+        'branch': '7.0', 'name': 'reporting-engine'},
+    {'url': 'https://github.com/OCA/server-tools',
+        'branch': '7.0', 'name': 'server-tools'},
+    {'url': 'https://github.com/OCA/web',
+        'branch': '7.0', 'name': 'web'},
 
 
     #    {'url': 'https://github.com/grap/odoo-addons-grap -b 7.0',
